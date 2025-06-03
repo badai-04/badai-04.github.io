@@ -11,33 +11,74 @@
             box-sizing: border-box;
         }
 
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
         body {
             font-family: "Microsoft YaHei", sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(-45deg, #f3e7e9, #e3eeff, #f3e7e9, #e3eeff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            color: #4a4a4a;
         }
 
         .container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            max-width: 900px;
             width: 100%;
             text-align: center;
+            backdrop-filter: blur(20px);
+            animation: fadeIn 1.2s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #a8c0ff, #e3eeff, #a8c0ff);
+            background-size: 200% 100%;
+            animation: gradientBG 3s ease infinite;
         }
 
         h1 {
             color: #2c3e50;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-size: 3.2em;
+            margin-bottom: 35px;
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+            animation: float 6s ease-in-out infinite;
+            font-weight: 300;
+            letter-spacing: 2px;
         }
 
         h1::after {
@@ -46,68 +87,142 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 180px;
             height: 3px;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
+            background: linear-gradient(90deg, #a8c0ff, #e3eeff, #a8c0ff);
             border-radius: 3px;
+            background-size: 200% 100%;
+            animation: gradientBG 3s ease infinite;
+            opacity: 0.8;
         }
 
         .info-card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 30px 0;
             text-align: left;
+            box-shadow: 0 10px 30px rgba(168, 192, 255, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(168, 192, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(168, 192, 255, 0.05), rgba(227, 238, 255, 0.05));
+            z-index: 0;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(168, 192, 255, 0.15);
+            border-color: rgba(168, 192, 255, 0.3);
         }
 
         .info-item {
-            margin: 15px 0;
-            color: #34495e;
+            margin: 25px 0;
+            color: #4a4a4a;
+            font-size: 1.15em;
+            display: flex;
+            align-items: center;
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+            position: relative;
+            z-index: 1;
         }
+
+        .info-item:nth-child(1) { animation-delay: 0.2s; }
+        .info-item:nth-child(2) { animation-delay: 0.4s; }
+        .info-item:nth-child(3) { animation-delay: 0.6s; }
 
         .info-item strong {
             color: #2c3e50;
-            margin-right: 10px;
+            margin-right: 20px;
+            font-size: 1.2em;
+            min-width: 90px;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
 
         .welcome-text {
-            color: #7f8c8d;
-            font-size: 1.1em;
-            margin: 20px 0;
+            color: #4a4a4a;
+            font-size: 1.25em;
+            margin: 30px 0;
             line-height: 1.8;
+            animation: fadeIn 1s ease-out;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.03);
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         .class-badge {
             display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
+            background: linear-gradient(45deg, #a8c0ff, #e3eeff);
+            color: #2c3e50;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 1.05em;
             margin-top: 10px;
+            box-shadow: 0 5px 20px rgba(168, 192, 255, 0.2);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(168, 192, 255, 0.3);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .class-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(168, 192, 255, 0.3);
+            background: linear-gradient(45deg, #e3eeff, #a8c0ff);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 15px;
+            }
+            
+            h1 {
+                font-size: 2.4em;
+            }
+            
+            .info-item {
+                font-size: 1.1em;
+            }
+
+            .welcome-text {
+                font-size: 1.15em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>自我介绍</h1>
+        <h1>我的主页</h1>
         <div class="welcome-text">
-            欢迎来到我的个人主页！我是一名充满热情的学生，正在人工智能领域探索和学习。
+            欢迎来到我的个人主页！作为一名充满热情的人工智能学习者，我期待在这个充满无限可能的领域里，与您一起探索AI的奥秘，共同成长。
         </div>
         <div class="info-card">
             <div class="info-item">
-                <strong>姓名：</strong>郑桐跃
+                <strong>姓名</strong>郑桐跃
             </div>
             <div class="info-item">
-                <strong>班级：</strong>
+                <strong>班级</strong>
                 <span class="class-badge">人工智能23-3班</span>
             </div>
             <div class="info-item">
-                <strong>专业：</strong>人工智能
+                <strong>专业</strong>人工智能
             </div>
         </div>
         <p class="welcome-text">
-            作为一名人工智能专业的学生，我致力于探索人工智能的奥秘，期待在这个充满挑战和机遇的领域中不断成长。
+            在这个人工智能蓬勃发展的时代，我怀揣着对技术的热爱与追求，致力于探索AI的无限可能。期待与志同道合的伙伴们一起，在人工智能的海洋中扬帆起航，共同书写属于我们的精彩篇章。
         </p>
     </div>
 </body>
