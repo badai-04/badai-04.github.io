@@ -1,12 +1,114 @@
 <!DOCTYPE html>
-<html lang="zty">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎页面</title>
+    <title>郑桐跃的个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 3px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .info-item {
+            margin: 15px 0;
+            color: #34495e;
+        }
+
+        .info-item strong {
+            color: #2c3e50;
+            margin-right: 10px;
+        }
+
+        .welcome-text {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .class-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>欢迎来到我的网站</h1>
-    <p>这是一个简单的欢迎页面，感谢您的访问！</p>
+    <div class="container">
+        <h1>郑桐跃</h1>
+        <div class="welcome-text">
+            欢迎来到我的个人主页！我是一名充满热情的学生，正在人工智能领域探索和学习。
+        </div>
+        <div class="info-card">
+            <div class="info-item">
+                <strong>姓名：</strong>郑桐跃
+            </div>
+            <div class="info-item">
+                <strong>班级：</strong>
+                <span class="class-badge">人工智能23-3班</span>
+            </div>
+            <div class="info-item">
+                <strong>专业：</strong>人工智能
+            </div>
+        </div>
+        <p class="welcome-text">
+            作为一名人工智能专业的学生，我致力于探索人工智能的奥秘，期待在这个充满挑战和机遇的领域中不断成长。
+        </p>
+    </div>
 </body>
 </html> 
